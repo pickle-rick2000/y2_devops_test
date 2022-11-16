@@ -17,7 +17,7 @@ git clone https://github.com/pickle-rick2000/y2_devops_test.git
 cd yad2_devops_test
 
 $var=${GITHUB_REF##*/}-${GITHUB_SHA}
-sed -i 's/image = "jhonyvsn1992\/yad2-go:.*"/image = "jhonyvsn1992\/yad2-go:$var"/g' kube.tf
+sed -i 's/image = "jhonyvsn1992\/yad2-go:.*"/image = "jhonyvsn1992\/yad2-go:${var}"/g' kube.tf
 
 git add .
 git commit -m "this is a commit from pipeline ${GITHUB_SHA}"
