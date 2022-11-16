@@ -10,6 +10,9 @@
 # docker push jhonyvsn1992/yad2-go:${GITHUB_REF##*/}-${GITHUB_SHA}
 
 git config --global --add safe.directory /github/workspace
+git config --global user.email "jhonatansela1@gmail.com"
+git config --global user.name "jhony"
+
 git clone https://github.com/pickle-rick2000/y2_devops_test.git
 cd yad2_devops_test
 
