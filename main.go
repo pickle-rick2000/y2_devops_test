@@ -1,10 +1,13 @@
 package main
+
 import (
-  "github.com/gorilla/mux"
-  "net/http"
-  "encoding/json"
-  "math/rand"
-  "strconv"
+	"encoding/json"
+	"fmt"
+	"math/rand"
+	"net/http"
+	"strconv"
+
+	"github.com/gorilla/mux"
 )
 
 type Post struct {
@@ -73,6 +76,7 @@ func deletePost(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+  fmt.Println("started")
   router := mux.NewRouter()
   posts = append(posts, Post{ID: "1", Title: "My first post", Body: "This is the content of my first post"})
   router.HandleFunc("/posts", createPost).Methods("GET")
