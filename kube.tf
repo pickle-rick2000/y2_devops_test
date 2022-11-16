@@ -36,7 +36,7 @@ resource "kubernetes_deployment" "example" {
       }
       spec {
         container {
-          image = "jhonyvsn1992/yad2-go:latest"
+          image = "jhonyvsn1992/yad2-go:$var"
           name  = "yad2-go"
           resources {
             limits = {
