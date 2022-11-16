@@ -1,25 +1,28 @@
 #!/bin/bash
 
+#install docker
  apt update
- apt install -y docker docker.io git
+ apt install -y docker docker.io
 
+#login to docker
+docker login -u "jhonyvsn1992" -p "Bmwz3199719!"
 
-# docker login -u "jhonyvsn1992" -p "Bmwz3199719!"
+#build
+docker build -t jhonyvsn1992/yad2-go:${GITHUB_REF##*/}-${GITHUB_SHA} .
+docker build -t jhonyvsn1992/yad2-go:${GITHUB_REF##*/}-latest .
 
-# docker build -t jhonyvsn1992/yad2-go:${GITHUB_REF##*/}-${GITHUB_SHA} .
-# docker push jhonyvsn1992/yad2-go:${GITHUB_REF##*/}-${GITHUB_SHA}
+#test the image
+docker run -d -p 8080:8080 jhonyvsn1992/yad2-go:${GITHUB_REF##*/}-latest
+test_app=`curl http://yad2-go.app.com`
 
-git config --global --add safe.directory /github/workspace
-git config --global user.email "jhonatansela1@gmail.com"
-git config --global user.name "jhony"
-
-git clone https://github.com/pickle-rick2000/y2_devops_test.git
-cd yad2_devops_test
-
-var=${GITHUB_REF##*/}-${GITHUB_SHA}
-sed -i 's/jhonyvsn1992\/yad2-go:.*"/jhonyvsn1992\/yad2-go:$var"/g' kube.tf
-
-git add .
-git commit -m "this is a commit from pipeline ${GITHUB_SHA}"
-git push
-
+if [$test_app -eq "post"]
+then
+    docker stop $(docker ps -a -q)
+    docker rm $(docker ps -a -q)
+    docker push jhonyvsn1992/yad2-go:${GITHUB_REF##*/}-${GITHUB_SHA}
+    docker push jhonyvsn1992/yad2-go:${GITHUB_REF##*/}-latest
+else
+    docker stop $(docker ps -a -q)
+    docker rm $(docker ps -a -q)
+    echo "The app isnt running accordingly. Sorry, but you failed."
+fi
