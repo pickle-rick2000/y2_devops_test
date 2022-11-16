@@ -9,6 +9,7 @@
 # docker build -t jhonyvsn1992/yad2-go:${GITHUB_REF##*/}-${GITHUB_SHA} .
 # docker push jhonyvsn1992/yad2-go:${GITHUB_REF##*/}-${GITHUB_SHA}
 
+git config --global --add safe.directory /github/workspace
 git clone https://github.com/pickle-rick2000/y2_devops_test.git
 cd yad2_devops_test
 
