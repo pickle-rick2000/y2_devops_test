@@ -3,7 +3,7 @@
 echo "Hello from brnach: ${GITHUB_REF##*/}"
 
  apt update
- apt install -y docker=17 docker.io
+ apt install -y docker=17.05.0 docker.io
 
 echo ${DOCKER_USERNAME} {DOCKER_PASSWORD}
 docker login -u ${DOCKER_USERNAME} -p {DOCKER_PASSWORD}
