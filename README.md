@@ -1,3 +1,5 @@
+aws eks update-kubeconfig --name yad2-eks --region eu-central-1
+
 # Home Exercise
 • The purpose of the following tasks is to gain familiarity with your way of thinking, your approach to new problems, and your ability to design and implement cloud solutions.
 

@@ -13,7 +13,7 @@ docker build -t jhonyvsn1992/yad2-go:${GITHUB_REF##*/}-latest .
 
 #test the image
 docker run -d -p 8080:8080 jhonyvsn1992/yad2-go:${GITHUB_REF##*/}-latest
-test_app=`curl http://yad2-go.app.com`
+test_app=`curl http://yad2-go.app.com/posts`
 
 if [$test_app -eq "post"]
 then
