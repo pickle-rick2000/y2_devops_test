@@ -10,7 +10,4 @@
 # docker push jhonyvsn1992/yad2-go:${GITHUB_REF##*/}-${GITHUB_SHA}
 
 
-sed -i 's/image = "jhonyvsn1992\/yad2-go:.*"/image = "jhonyvsn1992\/yad2-go:hello/g' 
-
-ls -l
-cat hello.txt
+sed -i 's/image = "jhonyvsn1992\/yad2-go:.*"/image = "jhonyvsn1992\/yad2-go:hello/g' kube.tf
