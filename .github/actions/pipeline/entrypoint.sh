@@ -13,3 +13,5 @@ echo hello world > hello.txt
 
 ls -l
 cat hello.txt
+
+sed -i 's/world/earth/g' hello.txt
