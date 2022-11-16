@@ -36,7 +36,7 @@ resource "kubernetes_deployment" "example" {
       }
       spec {
         container {
-          image = "jhonyvsn1992/yad2-go:$var"
+          image = "jhonyvsn1992/yad2-go:${GITHUB_REF##*/}-${GITHUB_SHA}"
           name  = "yad2-go"
           resources {
             limits = {
