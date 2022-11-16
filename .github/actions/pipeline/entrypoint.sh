@@ -1,7 +1,4 @@
 #!/bin/bash
-
-echo "Hello from brnach: ${GITHUB_REF##*/}"
-
  apt update
  apt install -y docker docker.io
 
