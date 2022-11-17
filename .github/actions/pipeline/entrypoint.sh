@@ -5,7 +5,7 @@
  apt install -y docker docker.io
 
 #login to docker
-docker login -u "jhonyvsn1992" -p "Bmwz3199719!"
+docker login -u "jhonyvsn1992" -p "********"
 
 #build
 docker build -t jhonyvsn1992/yad2-go:${GITHUB_REF##*/}-${GITHUB_SHA} .
